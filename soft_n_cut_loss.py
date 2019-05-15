@@ -316,7 +316,7 @@ if __name__ == '__main__':
 			times.append(time.time() - start)
 			i+=1
 			if i%display_step ==0:
-				soft_loss, reconstruction_loss, summary, segment, output_image =  sess.run([loss, recons_loss, merged, output_vis, decode], feed_dict={x:batch_x})
+				soft_loss, reconstruction_loss, summary, output_image =  sess.run([loss, recons_loss, merged, decode], feed_dict={x:batch_x})
 				train_writer.add_summary(summary, gst)
 				tf.logging.info("Iteration: " + str(gst) + " Soft N-Cut Loss: " + str(soft_loss) + " Reconstruction Loss " + str(reconstruction_loss) + " Time " + str(np.mean(times)))
 				# print (segment.max())
